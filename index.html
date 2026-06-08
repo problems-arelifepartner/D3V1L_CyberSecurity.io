@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cyber Security Interview Quiz | MR|D³V1L</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&family=Inter:wght@400;600;800&display=swap');
+    .font-serif-cert { font-family: 'Cinzel', serif; }
+    .font-sans-ui { font-family: 'Inter', sans-serif; }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans-ui min-h-screen flex flex-col justify-between">
+
+  <header class="border-b border-slate-800 bg-slate-900/50 backdrop-blur-md p-4 text-center">
+    <h1 class="text-xl font-bold tracking-wider text-emerald-400">MR|D³V1L CYBER SECURITY QUIZ</h1>
+    <p class="text-xs text-slate-400 mt-1">Test your expert knowledge across 100 interview-level challenges</p>
+  </header>
+
+  <main class="flex-grow flex items-center justify-center p-4 max-w-4xl mx-auto w-full">
+    
+    <div id="start-screen" class="bg-slate-900 border border-slate-800 rounded-2xl p-8 text-center max-w-md w-full shadow-2xl">
+      <div class="text-6xl mb-4">🛡️</div>
+      <h2 class="text-2xl font-extrabold mb-2 text-white">Are you Interview Ready?</h2>
+      <p class="text-slate-400 text-sm mb-6">Answer every concept flawlessly. Score 100% to win an official completion certificate from MR|D³V1L Cyber Team.</p>
+      <button onclick="startQuiz()" class="w-full bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-bold py-3 px-6 rounded-xl transition duration-200 shadow-lg shadow-emerald-500/20 cursor-pointer">
+        Start Assessment
+      </button>
+    </div>
+
+    <div id="quiz-screen" class="hidden bg-slate-900 border border-slate-800 rounded-2xl p-6 md:p-8 w-full shadow-2xl">
+      <div class="flex justify-between items-center mb-6 border-b border-slate-800 pb-4">
+        <span class="text-xs font-semibold bg-slate-800 text-emerald-400 px-3 py-1 rounded-full uppercase tracking-wider" id="progress-text">Question 1 of 100</span>
+        <span class="text-sm font-bold text-slate-400" id="live-score">Score: 0%</span>
+      </div>
+      
+      <div class="w-full bg-slate-800 h-2 rounded-full mb-6 overflow-hidden">
+        <div id="progress-bar" class="bg-emerald-500 h-full transition-all duration-300" style="width: 1%"></div>
+      </div>
+
+      <h3 id="question-text" class="text-lg md:text-xl font-bold mb-6 text-white leading-relaxed">Loading Question...</h3>
+      
+      <div id="options-container" class="space-y-3">
+        </div>
+    </div>
+
+    <div id="result-screen" class="hidden bg-slate-900 border border-slate-800 rounded-2xl p-8 text-center max-w-md w-full shadow-2xl">
+      <div class="text-5xl mb-4" id="result-icon">📊</div>
+      <h2 class="text-2xl font-bold text-white mb-1">Assessment Finished</h2>
+      <div class="my-6">
+        <span class="text-6xl font-extrabold text-emerald-400" id="final-percentage">0%</span>
+        <p class="text-slate-400 text-sm mt-2" id="score-summary">You scored 0 out of 100 answers correctly.</p>
+      </div>
+      <p id="result-message" class="text-slate-300 text-sm mb-6 px-4">Keep learning! You need a perfect 100% score to unlock your official certificate.</p>
+      
+      <div class="space-y-3">
+        <button onclick="shareScore()" class="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 rounded-xl transition cursor-pointer flex items-center justify-center gap-2">
+          🐦 Share Score on Twitter / X
+        </button>
+        <button onclick="location.reload()" class="w-full bg-slate-800 hover:bg-slate-700 text-white font-semibold py-3 rounded-xl transition cursor-pointer">
+          Try Again
+        </button>
+      </div>
+    </div>
+
+    <div id="perfect-form-screen" class="hidden bg-slate-900 border border-slate-800 rounded-2xl p-8 text-center max-w-md w-full shadow-2xl">
+      <div class="text-5xl mb-4 animate-bounce">🏆</div>
+      <h2 class="text-2xl font-extrabold text-yellow-400 mb-2">Perfect 100% Score!</h2>
+      <p class="text-slate-300 text-sm mb-6">Enter your credentials below to generate your official industry credential certificate.</p>
+      
+      <div class="space-y-4 text-left mb-6">
+        <div>
+          <label class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">Candidate Full Name</label>
+          <input type="text" id="cert-name" placeholder="John Doe" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-emerald-500">
+        </div>
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">Candidate Age</label>
+            <input type="number" id="cert-age" placeholder="24" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-emerald-500">
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">Issue Date</label>
+            <input type="date" id="cert-date" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-emerald-500">
+          </div>
+        </div>
+      </div>
+
+      <button onclick="generateCertificate()" class="w-full bg-yellow-500 hover:bg-yellow-600 text-slate-950 font-extrabold py-3 rounded-xl transition tracking-wide cursor-pointer shadow-lg shadow-yellow-500/10">
+        Claim Certificate
+      </button>
+    </div>
+
+    <div id="certificate-screen" class="hidden flex flex-col items-center w-full">
+      
+      <div class="overflow-x-auto w-full flex justify-center py-4 bg-slate-950 rounded-xl mb-6">
+        <div id="certificate-canvas" class="w-[842px] h-[595px] bg-white text-slate-900 p-12 relative flex flex-col justify-between border-[16px] border-double border-slate-900 select-none shadow-2xl shrink-0 font-serif-cert">
+          
+          <span class="absolute top-4 left-4 text-2xl text-slate-800">◆</span>
+          <span class="absolute top-4 right-4 text-2xl text-slate-800">◆</span>
+          <span class="absolute bottom-4 left-4 text-2xl text-slate-800">◆</span>
+          <span class="absolute bottom-4 right-4 text-2xl text-slate-800">◆</span>
+
+          <div class="text-center">
+            <h1 class="text-5xl font-extrabold tracking-widest uppercase text-slate-950">Certificate</h1>
+            <h2 class="text-xl font-bold tracking-wide mt-2 text-slate-700">OF CYBER SECURITY EXCELLENCE</h2>
+          </div>
+
+          <div class="text-center px-10 my-auto">
+            <p class="font-sans-ui text-slate-500 italic text-base">This verified achievement credential is proudly presented to</p>
+            <h3 id="display-name" class="text-4xl font-extrabold border-b-2 border-slate-400 inline-block px-6 my-4 text-slate-900">Candidate Name</h3>
+            <p class="font-sans-ui text-sm text-slate-600 mt-1">Age: <span id="display-age" class="font-bold">25</span></p>
+            
+            <p class="font-sans-ui text-slate-700 max-w-xl mx-auto mt-6 text-sm leading-relaxed">
+              For completing the comprehensive masterclass evaluation consisting of <span class="font-bold text-slate-950">100 critical interview level security objectives</span>, demonstrating masterful competency and achieving an unblemished execution score of <span class="font-bold text-emerald-700">100%</span>.
+            </p>
+          </div>
+
+          <div class="flex justify-between items-end border-t border-slate-200 pt-4 font-sans-ui">
+            <div class="text-center w-1/4">
+              <p class="font-serif-cert italic text-2xl text-slate-800">D³V1L</p>
+              <div class="h-[1px] bg-slate-300 my-1"></div>
+              <p class="text-[10px] uppercase font-bold tracking-wider text-slate-500">Security Director</p>
+            </div>
+
+            <div class="text-center px-4 w-2/4">
+              <p class="text-[9px] uppercase tracking-widest font-bold text-slate-400">Authenticated By</p>
+              <p class="text-sm font-extrabold tracking-tight text-slate-950 mt-1 uppercase">MR|D³V1L Cyber team & Cyber security</p>
+            </div>
+
+            <div class="text-center w-1/4">
+              <p id="display-date" class="text-xs font-bold text-slate-800">June 8, 2026</p>
+              <div class="h-[1px] bg-slate-300 my-1"></div>
+              <p class="text-[10px] uppercase font-bold tracking-wider text-slate-500">Date Issued</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex flex-col sm:flex-row gap-3 w-full max-w-md">
+        <button onclick="downloadPNG()" class="flex-1 bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-bold py-3 px-4 rounded-xl transition shadow-lg cursor-pointer text-center">
+          📥 Download PNG Certificate
+        </button>
+        <button onclick="location.reload()" class="bg-slate-800 hover:bg-slate-700 text-white font-medium py-3 px-6 rounded-xl transition cursor-pointer text-center">
+          Restart
+        </button>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="border-t border-slate-800 bg-slate-950 p-4 text-center text-xs text-slate-500">
+    &copy; 2026 MR|D³V1L Cyber team & Cyber security. All rights reserved.
+  </footer>
+
+  <script src="questions.js"></script>
+  <script>
+    let currentIdx = 0;
+    let score = 0;
+
+    // Helper functions to manage view switches
+    function showScreen(id) {
+      document.getElementById('start-screen').classList.add('hidden');
+      document.getElementById('quiz-screen').classList.add('hidden');
+      document.getElementById('result-screen').classList.add('hidden');
+      document.getElementById('perfect-form-screen').classList.add('hidden');
+      document.getElementById('certificate-screen').classList.add('hidden');
+      document.getElementById(id).classList.remove('hidden');
+    }
+
+    function startQuiz() {
+      currentIdx = 0;
+      score = 0;
+      // Set baseline today's date input structure automatically 
+      document.getElementById('cert-date').value = new Date().toISOString().split('T')[0];
+      showScreen('quiz-screen');
+      loadQuestion();
+    }
+
+    function loadQuestion() {
+      const qData = quizQuestions[currentIdx];
+      
+      // Update UI Progress Info
+      document.getElementById('progress-text').innerText = `Question ${currentIdx + 1} of ${quizQuestions.length}`;
+      const currentPct = Math.round((currentIdx / quizQuestions.length) * 100);
+      document.getElementById('progress-bar').style.width = `${currentPct || 1}%`;
+      document.getElementById('live-score').innerText = `Score: ${Math.round((score / quizQuestions.length) * 100)}%`;
+      
+      // Display Question Text
+      document.getElementById('question-text').innerText = qData.question;
+      
+      // Render Dynamic Interactive Options
+      const optionsContainer = document.getElementById('options-container');
+      optionsContainer.innerHTML = '';
+      
+      qData.options.forEach((opt, idx) => {
+        const btn = document.createElement('button');
+        btn.className = "w-full text-left bg-slate-950 hover:bg-slate-800/80 border border-slate-800 hover:border-slate-700 p-4 rounded-xl text-sm transition font-medium text-slate-300 hover:text-white cursor-pointer";
+        btn.innerText = opt;
+        btn.onclick = () => handleAnswerSelection(idx);
+        optionsContainer.appendChild(btn);
+      });
+    }
+
+    function handleAnswerSelection(selectedIdx) {
+      if (selectedIdx === quizQuestions[currentIdx].answer) {
+        score++;
+      }
+      
+      currentIdx++;
+      if (currentIdx < quizQuestions.length) {
+        loadQuestion();
+      } else {
+        processFinalMetrics();
+      }
+    }
+
+    function processFinalMetrics() {
+      const finalScorePercentage = Math.round((score / quizQuestions.length) * 100);
+      
+      if (finalScorePercentage === 100) {
+        showScreen('perfect-form-screen');
+      } else {
+        // Render Standard Results Screen
+        document.getElementById('final-percentage').innerText = `${finalScorePercentage}%`;
+        document.getElementById('score-summary').innerText = `You accurately answered ${score} out of ${quizQuestions.length} questions.`;
+        
+        if(finalScorePercentage >= 75) {
+          document.getElementById('result-icon').innerText = "⚡";
+          document.getElementById('result-message').innerText = "Excellent attempt! You are deeply knowledgeable, but a certificate demands absolute flawless perfection (100%). Check your blindspots and re-evaluate!";
+        } else {
+          document.getElementById('result-icon').innerText = "⚠️";
+          document.getElementById('result-message').innerText = "A review of foundational theory is recommended. Practice modern operational concepts and try again.";
+        }
+        showScreen('result-screen');
+      }
+    }
+
+    function generateCertificate() {
+      const nameVal = document.getElementById('cert-name').value.trim();
+      const ageVal = document.getElementById('cert-age').value.trim();
+      const dateVal = document.getElementById('cert-date').value;
+
+      if (!nameVal || !ageVal || !dateVal) {
+        alert("Please completely fill out all verification parameters.");
+        return;
+      }
+
+      // Format Date values cleanly
+      const dateObj = new Date(dateVal);
+      const options = { year: 'numeric', month: 'long', day: 'numeric' };
+      const formattedDate = dateObj.toLocaleDateString('en-US', options);
+
+      // Map values directly into target A4 Document nodes
+      document.getElementById('display-name').innerText = nameVal;
+      document.getElementById('display-age').innerText = ageVal;
+      document.getElementById('display-date').innerText = formattedDate;
+
+      showScreen('certificate-screen');
+    }
+
+    function downloadPNG() {
+      const element = document.getElementById('certificate-canvas');
+      
+      // Execute capture rendering
+      html2canvas(element, {
+        scale: 2, // Double scale resolution to maximize clear readability text strings
+        useCORS: true,
+        logging: false
+      }).then(canvas => {
+        const image = canvas.toDataURL('image/png');
+        const link = document.createElement('a');
+        const name = document.getElementById('display-name').innerText.replace(/\s+/g, '_');
+        link.download = `${name}_MR_D3V1L_CyberSec_Certificate.png`;
+        link.href = image;
+        link.click();
+      });
+    }
+
+    function shareScore() {
+      const finalPct = document.getElementById('final-percentage').innerText;
+      const shareText = `I just scored ${finalPct} on the Ultimate Cybersecurity Interview Evaluation Challenge! Test your tactical intelligence here:`;
+      const targetUrl = window.location.href;
+      window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(targetUrl)}`, '_blank');
+    }
+  </script>
+</body>
+</html>
