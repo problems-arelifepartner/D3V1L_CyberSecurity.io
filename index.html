@@ -155,59 +155,1108 @@
   <script>
     // 💡 YOUR QUESTION BANK IS NOW SECURELY INTEGRATED DIRECTLY INSIDE THIS FILE
     const quizQuestions = [
-      {
-        id: 1,
-        question: "What is the primary difference between symmetric and asymmetric encryption?",
-        options: [
-          "Symmetric uses one key for encryption and decryption; asymmetric uses a public/private key pair.",
-          "Asymmetric encryption is significantly faster than symmetric encryption.",
-          "Symmetric encryption is only used for data at rest, while asymmetric is for data in transit.",
-          "Symmetric encryption cannot be cracked, whereas asymmetric encryption can be."
-        ],
-        answer: 0
-      },
-      {
-        id: 2,
-        question: "Which of the following attacks exploits a trust relationship between a user's browser and a target website to execute unwanted actions?",
-        options: [
-          "Cross-Site Scripting (XSS)",
-          "Cross-Site Request Forgery (CSRF)",
-          "SQL Injection (SQLi)",
-          "Man-in-the-Middle (MitM)"
-        ],
-        answer: 1
-      },
-      {
-        id: 3,
-        question: "During an incident response phase, what is the main purpose of 'Containment'?",
-        options: [
-          "To discover the root cause of the security breach.",
-          "To completely remove the malware files from infected endpoints.",
-          "To limit the scope and magnitude of the incident to prevent further damage.",
-          "To restore systems back to normal business operations."
-        ],
-        answer: 2
-      },
-      {
-        id: 4,
-        question: "What does a 'Salt' add to a password hashing process to make it secure against rainbow tables?",
-        options: [
-          "A layer of symmetric encryption after hashing.",
-          "A fixed string appended to all passwords before hashing.",
-          "A unique, random string appended to each individual password before hashing.",
-          "A compression algorithm that reduces password complexity."
-        ],
-        answer: 3
-      },
-      {
-        id: 5,
-        question: "In Active Directory environments, what type of attack targets the Kerberos ticket-granting service (TGS) to crack service account passwords offline?",
-        options: [
-          "Kerberoasting",
-          "Pass-the-Hash",
-          "Golden Ticket Attack",
-          "AS-REP Roasting"
-        ],
+  {
+    id: 1,
+    question: "What is the primary difference between symmetric and asymmetric encryption?",
+    options: [
+      "Symmetric uses one key for encryption and decryption; asymmetric uses a public/private key pair.",
+      "Asymmetric encryption is significantly faster than symmetric encryption.",
+      "Symmetric encryption is only used for data at rest, while asymmetric is for data in transit.",
+      "Symmetric encryption cannot be cracked, whereas asymmetric encryption can be."
+    ],
+    answer: 0
+  },
+  {
+    id: 2,
+    question: "Which of the following attacks exploits a trust relationship between a user's browser and a target website to execute unwanted actions?",
+    options: [
+      "Cross-Site Scripting (XSS)",
+      "Cross-Site Request Forgery (CSRF)",
+      "SQL Injection (SQLi)",
+      "Man-in-the-Middle (MitM)"
+    ],
+    answer: 1
+  },
+  {
+    id: 3,
+    question: "During an incident response phase, what is the main purpose of 'Containment'?",
+    options: [
+      "To discover the root cause of the security breach.",
+      "To completely remove the malware files from infected endpoints.",
+      "To limit the scope and magnitude of the incident to prevent further damage.",
+      "To restore systems back to normal business operations."
+    ],
+    answer: 2
+  },
+  {
+    id: 4,
+    question: "What does a 'Salt' add to a password hashing process to make it secure against rainbow tables?",
+    options: [
+      "A layer of symmetric encryption after hashing.",
+      "A fixed string appended to all passwords before hashing.",
+      "A unique, random string appended to each individual password before hashing.",
+      "A compression algorithm that reduces password complexity."
+    ],
+    answer: 3
+  },
+  {
+    id: 5,
+    question: "In Active Directory environments, what type of attack targets the Kerberos ticket-granting service (TGS) to crack service account passwords offline?",
+    options: [
+      "Interception Attack",
+      "Pass-the-Hash",
+      "Golden Ticket Attack",
+      "Kerberoasting"
+    ],
+    answer: 3
+  },
+  {
+    id: 6,
+    question: "Which element of the CIA Triad is compromised when a Distributed Denial of Service (DDoS) attack hits an enterprise web application?",
+    options: [
+      "Confidentiality",
+      "Integrity",
+      "Availability",
+      "Non-repudiation"
+    ],
+    answer: 2
+  },
+  {
+    id: 7,
+    question: "What is the core philosophy of a Zero Trust security architecture?",
+    options: [
+      "Trust internal networks implicitly, verify external identities.",
+      "Never trust, always verify.",
+      "Encrypt all external perimeter traffic and whitelist local endpoints.",
+      "Eliminate password-based entry for all users."
+    ],
+    answer: 1
+  },
+  {
+    id: 8,
+    question: "What security strategy involves using multiple layered security controls to protect organizational assets?",
+    options: [
+      "Defense in Depth",
+      "Attack Surface Reduction",
+      "Network Segmentation",
+      "Identity Federation"
+    ],
+    answer: 0
+  },
+  {
+    id: 9,
+    question: "Which security model ensures that users receive only the minimum access levels required to perform their core job responsibilities?",
+    options: [
+      "Role-Based Access Control",
+      "Separation of Duties",
+      "Principle of Least Privilege",
+      "Implicit Deny"
+    ],
+    answer: 2
+  },
+  {
+    id: 10,
+    question: "Which of the following is considered a hashing algorithm collision vulnerability?",
+    options: [
+      "When two identical inputs yield completely different hashes.",
+      "When two distinctly different inputs yield identical hashes.",
+      "When a hash can be easily reversed to plaintext via mathematical decryption.",
+      "When the salt matches the password structure precisely."
+    ],
+    answer: 1
+  },
+  {
+    id: 11,
+    question: "What cryptographic objective does Perfect Forward Secrecy (PFS) fulfill?",
+    options: [
+      "It prevents brute-force key generation by scaling key lengths automatically.",
+      "It ensures that a compromise of long-term private keys does not compromise past session keys.",
+      "It encrypts the transport protocol and system configuration details simultaneously.",
+      "It securely binds public keys to unique physical device hardware."
+    ],
+    answer: 1
+  },
+  {
+    id: 12,
+    question: "What protocol mechanism does Diffie-Hellman execute?",
+    options: [
+      "Data Encryption",
+      "Digital Signature Verification",
+      "Secure Key Exchange",
+      "Identity Authentication"
+    ],
+    answer: 2
+  },
+  {
+    id: 13,
+    question: "When sending encrypted data to a recipient via Asymmetric Cryptography, which key should you use to encrypt the payload?",
+    options: [
+      "Your own private key",
+      "Your own public key",
+      "The recipient's public key",
+      "The recipient's private key"
+    ],
+    answer: 2
+  },
+  {
+    id: 14,
+    question: "How is a digital signature created to guarantee non-repudiation?",
+    options: [
+      "Encrypting the payload using the sender's public key.",
+      "Encrypting a hash of the payload using the sender's private key.",
+      "Hashing the payload using an asymmetric block cipher.",
+      "Salting the payload with a shared dynamic secret."
+    ],
+    answer: 1
+  },
+  {
+    id: 15,
+    question: "What differentiates a password 'Pepper' from a password 'Salt'?",
+    options: [
+      "A pepper is dynamic; a salt is static.",
+      "A pepper is stored inside the database alongside the hash; a salt is kept separate.",
+      "A pepper is a secret kept separate from the database (e.g., application config); a salt is stored in the database.",
+      "Peppers are only applied to administrative user accounts."
+    ],
+    answer: 2
+  },
+  {
+    id: 16,
+    question: "Which of the following occurs during an ARP Poisoning attack?",
+    options: [
+      "An attacker floods a switch with bogus MAC addresses to overflow the CAM table.",
+      "An attacker links their MAC address to the IP address of a legitimate gateway.",
+      "An attacker alters regional DNS records on an external authoritative nameserver.",
+      "An attacker intercepts wireless frame negotiations via deauthentication packets."
+    ],
+    answer: 1
+  },
+  {
+    id: 17,
+    question: "What protection does DNSSEC introduce to regular Domain Name System operations?",
+    options: [
+      "Implicit end-to-end payload encryption via TLS.",
+      "Cryptographic data authentication and integrity validation.",
+      "Automated threat intelligence blocklisting for dangerous paths.",
+      "Complete obfuscation of internal domain network structures."
+    ],
+    answer: 1
+  },
+  {
+    id: 18,
+    question: "What are the first two packets exchanged during a standard TLS 1.2 handshake?",
+    options: [
+      "SYN and SYN-ACK",
+      "Client Hello and Server Hello",
+      "Key Exchange Request and Certificate Validation",
+      "Client Key Exchange and Change Cipher Spec"
+    ],
+    answer: 1
+  },
+  {
+    id: 19,
+    question: "Which Nmap scan argument triggers a complete TCP Connect scan?",
+    options: [
+      "-sS",
+      "-sU",
+      "-sT",
+      "-sV"
+    ],
+    answer: 2
+  },
+  {
+    id: 20,
+    question: "Why is an Nmap SYN Scan (-sS) commonly described as a 'half-open' scan?",
+    options: [
+      "It terminates connections early by sending a RST packet before the three-way handshake completes.",
+      "It scans only the lower half of available logical ports.",
+      "It completely bypasses firewall rules by splitting packets in half.",
+      "It requires only one outbound UDP check packet."
+    ],
+    answer: 0
+  },
+  {
+    id: 21,
+    question: "What fundamental operational behavior distinguishes an Intrusion Prevention System (IPS) from an Intrusion Detection System (IDS)?",
+    options: [
+      "An IDS analyzes raw packet captures, while an IPS only evaluates syslog records.",
+      "An IPS sits inline and can actively drop malicious traffic; an IDS alerts but does not stop traffic.",
+      "An IDS requires regular signature updates, whereas an IPS relies exclusively on heuristics.",
+      "An IPS cannot protect internal database structures."
+    ],
+    answer: 1
+  },
+  {
+    id: 22,
+    question: "What is the primary architectural purpose of a Honeypot?",
+    options: [
+      "To serve as a high-capacity backup storage target during ransomware responses.",
+      "To attract, deflect, and study adversary tactics on a decoy system.",
+      "To filter inbound spam emails using specialized heuristic matching.",
+      "To act as a central hub for distributing operational system patches."
+    ],
+    answer: 1
+  },
+  {
+    id: 23,
+    question: "Which default logical port handles secure SSH transport traffic?",
+    options: [
+      "Port 21",
+      "Port 22",
+      "Port 23",
+      "Port 443"
+    ],
+    answer: 1
+  },
+  {
+    id: 24,
+    question: "Which logical port handles Remote Desktop Protocol (RDP) connections in Windows?",
+    options: [
+      "Port 445",
+      "Port 139",
+      "Port 3389",
+      "Port 8080"
+    ],
+    answer: 2
+  },
+  {
+    id: 25,
+    question: "What happens during a Border Gateway Protocol (BGP) Hijacking incident?",
+    options: [
+      "An attacker compromises local router memory using custom firmware payloads.",
+      "An attacker falsely advertises IP prefixes, routing internet traffic through unauthorized paths.",
+      "An attacker floods DNS registration entities using automated generation software.",
+      "An attacker targets system firmware on localized firewalls."
+    ],
+    answer: 1
+  },
+  {
+    id: 26,
+    question: "What is the core function of a Security Information and Event Management (SIEM) system?",
+    options: [
+      "Automated system software patching across remote endpoints.",
+      "Centralized log aggregation, normalization, and correlation for security analysis.",
+      "Enforcing network access policy constraints on edge firewalls.",
+      "Generating dynamic encryption keys for local wireless points."
+    ],
+    answer: 1
+  },
+  {
+    id: 27,
+    question: "What is the most effective programmatic defense against SQL Injection (SQLi) vulnerabilities?",
+    options: [
+      "Enforcing strict input length constraints on all web forms.",
+      "Using parameterized queries (prepared statements).",
+      "Relying entirely on base64 input parsing utilities.",
+      "Deploying client-side JavaScript filtering rules."
+    ],
+    answer: 1
+  },
+  {
+    id: 28,
+    question: "What distinguishes Stored Cross-Site Scripting (XSS) from Reflected Cross-Site Scripting (XSS)?",
+    options: [
+      "Reflected XSS executes inside database parameters; Stored XSS executes on the client device.",
+      "Stored XSS permanently saves the malicious script on the target server/database; Reflected XSS requires a user to click a crafted link.",
+      "Reflected XSS can only target web browser application extensions.",
+      "Stored XSS operates strictly on internal perimeter web servers."
+    ],
+    answer: 1
+  },
+  {
+    id: 29,
+    question: "How does an anti-CSRF token defend against Cross-Site Request Forgery attacks?",
+    options: [
+      "It completely encrypts the user session cookie using asymmetric operations.",
+      "It validates that a request contains a unique, unpredictable server-generated token tied to the user session.",
+      "It restricts target applications from loading external script integrations.",
+      "It enforces client ip tracking across multi-factor validations."
+    ],
+    answer: 1
+  },
+  {
+    id: 30,
+    question: "What describes a Server-Side Request Forgery (SSRF) exploit?",
+    options: [
+      "An attacker tricks a victim's browser into executing unauthorized calls against a remote application.",
+      "An attacker manipulates a server into making unauthorized HTTP requests to internal or external infrastructure.",
+      "An attacker injects operational binary patterns into localized server application arrays.",
+      "An attacker exploits out-of-date session storage structures to compromise identity records."
+    ],
+    answer: 1
+  },
+  {
+    id: 31,
+    question: "Which scenario describes an Insecure Direct Object Reference (IDOR) flaw?",
+    options: [
+      "Modifying an input parameter (like a user ID in a URL) to access another user's private data due to missing authorization checks.",
+      "Injecting dynamic system commands inside an application input field.",
+      "Uploading an executable shell script to a public file upload form.",
+      "Overrunning a program's buffer memory to hijack operational threads."
+    ],
+    answer: 0
+  },
+  {
+    id: 32,
+    question: "An XML External Entity (XXE) vulnerability occurs due to a misconfiguration in which component?",
+    options: [
+      "The underlying server operating system storage layer.",
+      "The application's XML parser configuration, which permits external entity resolution.",
+      "The database schema processing mechanism.",
+      "The perimeter network firewall routing rules."
+    ],
+    answer: 1
+  },
+  {
+    id: 33,
+    question: "Which OWASP top 10 categories group covers vulnerabilities related to API endpoints exposing distinct internal object identifiers directly?",
+    options: [
+      "Cryptographic Failures",
+      "Broken Object Level Authorization",
+      "Security Misconfiguration",
+      "Server-Side Request Forgery"
+    ],
+    answer: 1
+  },
+  {
+    id: 34,
+    question: "What is the primary function of a Content Security Policy (CSP) header?",
+    options: [
+      "To encrypt browser application caches against local access threats.",
+      "To restrict the sources from which a browser is allowed to load resources and execute scripts.",
+      "To validate system database permissions on a server.",
+      "To enforce multi-factor authentication across secure web frameworks."
+    ],
+    answer: 1
+  },
+  {
+    id: 35,
+    question: "Which configuration value introduces extreme security risk inside a Cross-Origin Resource Sharing (CORS) setup?",
+    options: [
+      "Access-Control-Allow-Origin: null",
+      "Access-Control-Allow-Origin: *",
+      "Access-Control-Allow-Credentials: false",
+      "Access-Control-Max-Age: 3600"
+    ],
+    answer: 1
+  },
+  {
+    id: 36,
+    question: "What pattern characterizes a standard Directory Traversal attack payload?",
+    options: [
+      "SELECT * FROM users WHERE id=1",
+      "../../../../etc/passwd",
+      "<script>alert(1)</script>",
+      "admin' OR '1'='1"
+    ],
+    answer: 1
+  },
+  {
+    id: 37,
+    question: "Which HTTP header effectively mitigates Clickjacking attacks?",
+    options: [
+      "X-Frame-Options",
+      "X-XSS-Protection",
+      "Strict-Transport-Security",
+      "Content-Type"
+    ],
+    answer: 0
+  },
+  {
+    id: 38,
+    question: "An attacker utilizes an XSS vulnerability to access 'document.cookie'. Which cookie flag could have completely prevented this access?",
+    options: [
+      "Secure",
+      "HttpOnly",
+      "SameSite",
+      "Domain"
+    ],
+    answer: 1
+  },
+  {
+    id: 39,
+    question: "What is the primary root cause of software-level Buffer Overflow vulnerabilities?",
+    options: [
+      "Failing to enforce multi-factor identity parameters.",
+      "A complete lack of proper input bounds checking before writing data to memory.",
+      "Using outdated transport protocol schemes.",
+      "Improper system file permission configurations."
+    ],
+    answer: 1
+  },
+  {
+    id: 40,
+    question: "What technique describes a Pass-the-Hash attack?",
+    options: [
+      "Cracking system NTLM password storage entries using high-speed GPU rigs.",
+      "Authenticating to a remote server by using a captured NTLM hash directly, without needing the plaintext password.",
+      "Intercepting system authentication checks using wireless network spoofing.",
+      "Modifying password parameters inside database identity structures."
+    ],
+    answer: 1
+  },
+  {
+    id: 41,
+    question: "What type of Active Directory compromise is executed during a Golden Ticket attack?",
+    options: [
+      "Forging a Ticket Granting Service (TGS) ticket for an individual account.",
+      "Forging a Ticket Granting Ticket (TGT) by compromising the KRBTGT account NTLM hash.",
+      "Extracting local machine hashes using registry system dumping tools.",
+      "Bypassing Active Directory replication schema validations."
+    ],
+    answer: 1
+  },
+  {
+    id: 42,
+    question: "What is the primary function of the Local Security Authority Subsystem Service (LSASS) process in Windows?",
+    options: [
+      "Managing background system update downloads.",
+      "Enforcing security policies and verifying user credentials in memory.",
+      "Controlling disk partition allocations and sector check loops.",
+      "Handling outbound web service connection handshakes."
+    ],
+    answer: 1
+  },
+  {
+    id: 43,
+    question: "An adversary uses a kernel exploit to transition an unprivileged shell into a root system shell. What type of action is this?",
+    options: [
+      "Lateral Movement",
+      "Privilege Escalation",
+      "Initial Access",
+      "Credential Stuffing"
+    ],
+    answer: 1
+  },
+  {
+    id: 44,
+    question: "Which Linux file contains the actual cryptographically hashed user password strings?",
+    options: [
+      "/etc/passwd",
+      "/etc/shadow",
+      "/var/log/auth.log",
+      "/etc/security/limits.conf"
+    ],
+    answer: 1
+  },
+  {
+    id: 45,
+    question: "What distinguishes a Rootkit from conventional malware variants?",
+    options: [
+      "It requires automated macro functions inside office files to trigger.",
+      "It modifies core operating system functions at a deep level to hide its presence and processes.",
+      "It spreads solely across wireless networking architectures.",
+      "It targets only external identity validation solutions."
+    ],
+    answer: 1
+  },
+  {
+    id: 46,
+    question: "Modern ransomware deployment strategies frequently use 'Double Extortion'. What does this mean?",
+    options: [
+      "Encrypting primary infrastructure files alongside cold offline backup repositories.",
+      "Exfiltrating sensitive corporate data before encrypting systems, threatening to leak it if the ransom isn't paid.",
+      "Demanding payment in two separate forms of cryptocurrency.",
+      "Targeting production platforms and third-party vendor platforms simultaneously."
+    ],
+    answer: 1
+  },
+  {
+    id: 47,
+    question: "According to NIST frameworks, what is the very first phase of the Incident Response life cycle?",
+    options: [
+      "Detection and Analysis",
+      "Preparation",
+      "Containment, Eradication, and Recovery",
+      "Post-Incident Activity"
+    ],
+    answer: 1
+  },
+  {
+    id: 48,
+    question: "When a SIEM triggers an alert on a legitimate, actual cyberattack occurring on the network, what category does this outcome fall under?",
+    options: [
+      "True Positive",
+      "False Positive",
+      "True Negative",
+      "False Negative"
+    ],
+    answer: 0
+  },
+  {
+    id: 49,
+    question: "What type of analysis maps adversary tactics, techniques, and procedures (TTPs) based on real-world observations into an open matrix framework?",
+    options: [
+      "The Cyber Kill Chain",
+      "MITRE ATT&CK",
+      "OWASP Mobile Top 10",
+      "CVSS Scoring Model"
+    ],
+    answer: 1
+  },
+  {
+    id: 50,
+    question: "Which of the following would be categorized as an Indicator of Compromise (IoC)?",
+    options: [
+      "An update to the company's internal security policy documentation.",
+      "A known malicious file MD5 hash found executing from a system's temp directory.",
+      "An increase in standard external user traffic during active business hours.",
+      "The deployment of an updated version of an operating system kernel."
+    ],
+    answer: 1
+  },
+  {
+    id: 51,
+    question: "What open-source framework is widely utilized during incident response to perform forensic analysis of volatile memory (RAM) dumps?",
+    options: [
+      "Wireshark",
+      "Volatility",
+      "Autopsy",
+      "Metasploit"
+    ],
+    answer: 1
+  },
+  {
+    id: 52,
+    question: "What principle determines the 'Order of Volatility' during digital forensic evidence gathering?",
+    options: [
+      "Acquiring larger storage systems before smaller peripheral storage systems.",
+      "Capturing highly transient data (like CPU registers and RAM) before stable data (like hard drives).",
+      "Processing system application event logs before system configuration files.",
+      "Collecting network infrastructure logs before host endpoint captures."
+    ],
+    answer: 1
+  },
+  {
+    id: 53,
+    question: "Under the Cloud Computing Shared Responsibility Model, who is responsible for configuring access rules and managing IAM identities in an Infrastructure-as-a-Service (IaaS) setup?",
+    options: [
+      "The Cloud Service Provider (CSP)",
+      "The Customer",
+      "The Hardware Manufacturer",
+      "The External Identity Auditor"
+    ],
+    answer: 1
+  },
+  {
+    id: 54,
+    question: "What function does an AWS IAM Role fulfill?",
+    options: [
+      "It permanent encrypts underlying storage allocations.",
+      "It grants temporary security credentials to AWS resources or applications without sharing long-term keys.",
+      "It monitors outbound network connections for policy compliance.",
+      "It acts as a primary firewall perimeter constraint on data buckets."
+    ],
+    answer: 1
+  },
+  {
+    id: 55,
+    question: "Which specific IP address serves as the default link-local cloud instance metadata service endpoint across AWS, Azure, and GCP?",
+    options: [
+      "127.0.0.1",
+      "192.168.1.1",
+      "169.254.169.254",
+      "10.0.0.1"
+    ],
+    answer: 2
+  },
+  {
+    id: 56,
+    question: "What security risk occurs during a 'Container Escape' exploit?",
+    options: [
+      "An attacker breaks out of an isolated containerized application to gain unauthorized access to the host operating system kernel.",
+      "A containerized application automatically consumes excessive cloud computing budget.",
+      "Unused container images accumulate inside deployment storage systems.",
+      "Container instances fail to replicate across active multi-region zones."
+    ],
+    answer: 0
+  },
+  {
+    id: 57,
+    question: "Which of the following compliance certifications specifically requires an organization to evaluate the operational effectiveness of its security controls over a continuous review period (typically 6 months or longer)?",
+    options: [
+      "SOC 2 Type I",
+      "SOC 2 Type II",
+      "ISO 27001 Foundation",
+      "PCI-DSS Level 4 Assessment"
+    ],
+    answer: 1
+  },
+  {
+    id: 58,
+    question: "What is the maximum theoretical fine penalty for severe non-compliance under GDPR regulations?",
+    options: [
+      "Up to €5 million or 1% of annual global turnover.",
+      "Up to €20 million or 4% of annual global turnover, whichever is higher.",
+      "Complete operational business suspension within European territories.",
+      "Fixed baseline fine assessments independent of corporate size."
+    ],
+    answer: 1
+  },
+  {
+    id: 59,
+    question: "What primary metric defines the maximum targeted duration of system downtime permitted before an incident causes unacceptable business damage?",
+    options: [
+      "Recovery Point Objective (RPO)",
+      "Recovery Time Objective (RTO)",
+      "Maximum Tolerable Downtime (MTD)",
+      "Annualized Loss Expectancy (ALE)"
+    ],
+    answer: 1
+  },
+  {
+    id: 60,
+    question: "What does Recovery Point Objective (RPO) measure?",
+    options: [
+      "The maximum age of data that must be recovered from backup storage for business operations to resume normally.",
+      "The duration of time it takes to restore an active system endpoint.",
+      "The physical distance separating data centers.",
+      "The processing capacity required to rebuild target records."
+    ],
+    answer: 0
+  },
+  {
+    id: 61,
+    question: "What social engineering attack involves an adversary targeting a specific high-profile corporate executive via highly tailored communication channels?",
+    options: [
+      "Spear Phishing",
+      "Whaling",
+      "Vishing",
+      "Baiting"
+    ],
+    answer: 1
+  },
+  {
+    id: 62,
+    question: "What physical security violation describes an unauthorized individual closely following an authorized employee through a secure entry door without presenting credentials?",
+    options: [
+      "Shoulder Surfing",
+      "Tailgating (Piggybacking)",
+      "Social Engineering",
+      "Perimeter Hopping"
+    ],
+    answer: 1
+  },
+  {
+    id: 63,
+    question: "In professional security simulations, what core mission defines Blue Team activities?",
+    options: [
+      "Conducting active penetration testing exploits against target platforms.",
+      "Defending organizational infrastructure by detecting, mitigating, and responding to security incidents.",
+      "Managing programmatic secure code design reviews across production development.",
+      "Auditing compliance tracking elements against legislative benchmarks."
+    ],
+    answer: 1
+  },
+  {
+    id: 64,
+    question: "What defines a Purple Team engagement?",
+    options: [
+      "An automated scanning process targeting edge assets.",
+      "A collaborative exercise where Red (offensive) and Blue (defensive) teams work together in real-time to optimize detection capabilities.",
+      "An external security compliance audit performed by certified entities.",
+      "A code review pipeline executed during continuous integration routines."
+    ],
+    answer: 1
+  },
+  {
+    id: 65,
+    question: "Which symmetric encryption block cipher mode utilizes an initialization vector alongside counter values to convert a block cipher into a high-performance stream cipher with authenticated encryption (AEAD)?",
+    options: [
+      "Cipher Block Chaining (CBC)",
+      "Electronic Codebook (ECB)",
+      "Galois/Counter Mode (GCM)",
+      "Output Feedback (OFB)"
+    ],
+    answer: 2
+  },
+  {
+    id: 66,
+    question: "What security risk is created by exposing a Bastion Host to the public internet?",
+    options: [
+      "It completely eliminates the utility of local application containers.",
+      "It serves as a primary, exposed point of entry that must be hardened against attack to protect access to internal systems.",
+      "It routes internal domain database structures onto public networks.",
+      "It stops operating systems from receiving standard vendor updates."
+    ],
+    answer: 1
+  },
+  {
+    id: 67,
+    question: "What defines an 'Air-Gapped' system configuration?",
+    options: [
+      "A platform protected by multiple overlapping virtual firewalls.",
+      "A computer network that is physically isolated from unsecure networks, such as the public internet.",
+      "A server setup that depends exclusively on encrypted wireless connections.",
+      "An infrastructure cluster distributed across distinct global zones."
+    ],
+    answer: 1
+  },
+  {
+    id: 68,
+    question: "What major security upgrade did WPA3 introduce to wireless networks to protect against offline dictionary brute-force attacks compared to WPA2?",
+    options: [
+      "Pre-Shared Key enforcement adjustments.",
+      "Simultaneous Authentication of Equals (SAE) protocol integration.",
+      "Enforcing static broadcast intervals across base paths.",
+      "Mandatory usage of dynamic client IP assignments."
+    ],
+    answer: 1
+  },
+  {
+    id: 69,
+    question: "What happens during a Wi-Fi Deauthentication attack?",
+    options: [
+      "An attacker modifies the configuration parameters of a local wireless access point.",
+      "An attacker sends forged disassociation frames to disconnect a target client device from its wireless access point.",
+      "An attacker intercepts underlying encryption keys through specialized signal interception devices.",
+      "An attacker overruns local router memory using malformed network configurations."
+    ],
+    answer: 1
+  },
+  {
+    id: 70,
+    question: "What mechanism is exploited during a DNS Amplification Distributed Denial of Service attack?",
+    options: [
+      "An attacker floods a target web server with high-frequency HTTP POST requests.",
+      "An attacker sends spoofed UDP requests with the victim's IP address to open DNS resolvers, prompting them to send large response payloads back to the victim.",
+      "An attacker compromises localized domain zone configurations to break internal asset lookup paths.",
+      "An attacker overruns authoritative naming registry memory structures."
+    ],
+    answer: 1
+  },
+  {
+    id: 71,
+    question: "How does an adversary execute a MAC Flooding attack against a network switch?",
+    options: [
+      "By altering internal VLAN trunk configuration tags across local connections.",
+      "By overwhelming the switch's Content Addressable Memory (CAM) table with spoofed MAC addresses, forcing it to act like a hub.",
+      "By executing script configurations targeting system management portals.",
+      "By intercepting active link layer negotiations over physical wires."
+    ],
+    answer: 1
+  },
+  {
+    id: 72,
+    question: "What occurs during a VLAN Hopping exploit?",
+    options: [
+      "An attacker forces network equipment to balance routing load across multiple links.",
+      "An attacker configures a system to send packets encapsulated with dual 802.1Q tags to bypass network segregation and access a different VLAN.",
+      "An attacker maps the infrastructure of local wireless access points.",
+      "An attacker targets internal gateway devices using custom management code."
+    ],
+    answer: 1
+  },
+  {
+    id: 73,
+    question: "What operational behavior distinguishes a Stateful Firewall from a Stateless Firewall?",
+    options: [
+      "A stateful firewall monitors the context and active state of network connections, evaluating packets based on the context of entire sessions.",
+      "A stateful firewall analyzes application payload contents exclusively.",
+      "A stateless firewall requires dynamic configuration updates to function.",
+      "A stateless firewall runs solely within specialized container environments."
+    ],
+    answer: 0
+  },
+  {
+    id: 74,
+    question: "How does DOM-based Cross-Site Scripting (XSS) differ from Reflected or Stored XSS variations?",
+    options: [
+      "The malicious payload is executed strictly within database server procedures.",
+      "The vulnerability exists entirely in client-side JavaScript that parses and handles data unsafely within the Document Object Model (DOM).",
+      "The attack requires an enterprise application platform compromise.",
+      "The payload targets internal perimeter firewalls directly."
+    ],
+    answer: 1
+  },
+  {
+    id: 75,
+    question: "What specialized platform allows researchers to search for internet-connected IoT devices, open ports, and industrial control systems?",
+    options: [
+      "Wireshark Open Database",
+      "Shodan",
+      "VirusTotal Enterprise",
+      "Metasploit Framework Marketplace"
+    ],
+    answer: 1
+  },
+  {
+    id: 76,
+    question: "What attack methodology describes 'Living off the Land' (LotL)?",
+    options: [
+      "Using custom-compiled advanced persistent threat binaries on target servers.",
+      "Using legitimate, built-in system administrative tools (like PowerShell or wmic) to execute malicious actions and evade detection.",
+      "Compromising backup power generation utilities at a target data center.",
+      "Targeting remote third-party operational service partners."
+    ],
+    answer: 1
+  },
+  {
+    id: 77,
+    question: "What defines Fileless Malware?",
+    options: [
+      "Malware that spreads entirely via physical storage accessories.",
+      "Malware that executes directly inside volatile memory (RAM) without writing executable files to the target machine's hard drive.",
+      "Malware targeting cloud application buckets.",
+      "Malware designed to modify system configuration text lines."
+    ],
+    answer: 1
+  },
+  {
+    id: 78,
+    question: "What advanced auditing utility provides detailed monitoring and logging of Windows system activities, including process creation, network connections, and file modifications?",
+    options: [
+      "Task Manager",
+      "Sysmon (System Monitor)",
+      "Performance Monitor",
+      "Component Services console"
+    ],
+    answer: 1
+  },
+  {
+    id: 79,
+    question: "On a Linux machine, what access access privileges are granted to a file configured with permissions set via 'chmod 777'?",
+    options: [
+      "Read and Write privileges for the file owner only.",
+      "Read, Write, and Execute privileges for Owner, Group, and all other users.",
+      "Read and Execute permissions restricted to administrative accounts.",
+      "Complete system compression locking controls."
+    ],
+    answer: 1
+  },
+  {
+    id: 80,
+    question: "What core risk is identified by a 'Blind Spot' assessment within Threat Intelligence practices?",
+    options: [
+      "A complete lack of sufficient visibility or active monitoring over specific infrastructure layers, applications, or regions.",
+      "The duration of time it takes to deploy an emergency software patch.",
+      "A configuration error on edge network hardware.",
+      "The physical destruction of backup logging facilities."
+    ],
+    answer: 0
+  },
+  {
+    id: 81,
+    question: "Which metric represents the calculated financial loss an organization expects to incur from a specific risk over the span of a single year?",
+    options: [
+      "Single Loss Expectancy (SLE)",
+      "Annual Rate of Occurrence (ARO)",
+      "Annualized Loss Expectancy (ALE)",
+      "Exposure Factor (EF)"
+    ],
+    answer: 2
+  },
+  {
+    id: 82,
+    question: "What formula calculates the Annualized Loss Expectancy (ALE)?",
+    options: [
+      "ALE = SLE * ARO",
+      "ALE = SLE / ARO",
+      "ALE = Asset Value * Exposure Factor",
+      "ALE = ARO + SLE"
+    ],
+    answer: 0
+  },
+  {
+    id: 83,
+    question: "What mechanism defines an 'Asymmetric' routing path problem?",
+    options: [
+      "When network data travels along one physical cable route to a destination, but takes a completely different path on the return trip.",
+      "When network protocols encrypt inbound data but leave outbound data in plaintext.",
+      "When firewalls fail to replicate active rule changes across active clusters.",
+      "When connections depend on mixed wireless and wired mediums."
+    ],
+    answer: 0
+  },
+  {
+    id: 84,
+    question: "What core threat condition is identified by a Time-of-Check to Time-of-Use (TOCTOU) bug?",
+    options: [
+      "A condition where a program checks a security state but that state changes before the program performs the action, leading to authorization bypass.",
+      "A configuration error where network hardware operates on mismatched timezone entries.",
+      "An attack targeting log retention timers inside central SIEM databases.",
+      "A software crash resulting from mismatched system clock components."
+    ],
+    answer: 0
+  },
+  {
+    id: 85,
+    question: "What programmatic design choice introduces a 'Race Condition' vulnerability?",
+    options: [
+      "When multiple threads or processes access and manipulate shared data concurrently, and the final outcome depends on the timing of their execution.",
+      "When an application performs intensive calculation processing loops.",
+      "When database engines handle unstructured input parameters without optimization.",
+      "When firewalls handle traffic volumes that exceed their hardware specifications."
+    ],
+    answer: 0
+  },
+  {
+    id: 86,
+    question: "Which security model utilizes a central authority to enforce access controls based on fixed, cryptographic classifications (such as Secret, Top Secret) that standard users cannot alter?",
+    options: [
+      "Discretionary Access Control (DAC)",
+      "Mandatory Access Control (MAC)",
+      "Role-Based Access Control (RBAC)",
+      "Attribute-Based Access Control (ABAC)"
+    ],
+    answer: 1
+  },
+  {
+    id: 87,
+    question: "What core protection does the 'SameSite' cookie attribute provide when properly configured to 'Strict'?",
+    options: [
+      "It blocks scripts from accessing cookies via document.cookie calls.",
+      "It prevents the browser from sending the cookie along with cross-site requests, effectively mitigating CSRF attacks.",
+      "It forces cookies to be transmitted exclusively over secure HTTPS channels.",
+      "It links the cookie lifetime directly to the browser application runtime."
+    ],
+    answer: 1
+  },
+  {
+    id: 88,
+    question: "What action defines an AD 'AS-REP Roasting' attack?",
+    options: [
+      "Extracting TGS ticket parameters using network sniffing software.",
+      "Targeting user accounts that do not require Kerberos pre-authentication to harvest encrypted AS-REP responses and crack them offline.",
+      "Modifying administrative user attributes directly inside domain schemas.",
+      "Flooding domain controllers with bogus authorization checks."
+    ],
+    answer: 1
+  },
+  {
+    id: 89,
+    question: "Which structural element of the Windows Registry handles system boot configuration profiles, kernel settings, and driver properties?",
+    options: [
+      "HKEY_CURRENT_USER (HKCU)",
+      "HKEY_LOCAL_MACHINE (HKLM)",
+      "HKEY_CLASSES_ROOT (HKCR)",
+      "HKEY_USERS (HKU)"
+    ],
+    answer: 1
+  },
+  {
+    id: 90,
+    question: "What threat vector is addressed by deploying dynamic ARP Inspection (DAI) on a corporate network switch?",
+    options: [
+      "BGP prefix manipulation attempts.",
+      "ARP Spoofing/Poisoning attacks within the local area network.",
+      "External DNS cache injection incidents.",
+      "Wireless frame deauthentication routines."
+    ],
+    answer: 1
+  },
+  {
+    id: 91,
+    question: "What security boundary is violated during a 'Side-Channel' attack?",
+    options: [
+      "Modifying system application memory space directly via administrative commands.",
+      "Extracting cryptographic keys or sensitive data by analyzing physical characteristics of hardware, such as power consumption or electromagnetic leaks.",
+      "Bypassing external perimeter firewalls using spoofed routing headers.",
+      "Altering parameter fields inside cloud identity systems."
+    ],
+    answer: 1
+  },
+  {
+    id: 92,
+    question: "What design choice characterizes a 'Polyalphabetic' cipher system?",
+    options: [
+      "Using a single substitution alphabet uniformly across an entire payload string.",
+      "Using multiple substitution alphabets at different positions throughout the encryption process.",
+      "Converting plain input parameters into structured binary block sizes.",
+      "Shifting character locations by a fixed numerical offset value."
+    ],
+    answer: 1
+  },
+  {
+    id: 93,
+    question: "Which component of an operating system kernel controls hardware access, memory allocations, and schedules operational program threads?",
+    options: [
+      "The Bootloader",
+      "The Core Kernel Engine",
+      "The File System Driver",
+      "The Command Shell Interface"
+    ],
+    answer: 1
+  },
+  {
+    id: 94,
+    question: "What does an adversary achieve via 'DLL Hijacking' on a Windows system?",
+    options: [
+      "Modifying database query results by tampering with database dependencies.",
+      "Tricking a legitimate application into loading a malicious DLL file by placing it in a directory searched before the system folder.",
+      "Terminating active anti-virus software tasks via command parameters.",
+      "Bypassing identity checks inside local directory services."
+    ],
+    answer: 1
+  },
+  {
+    id: 95,
+    question: "What operational behavior defines a 'Heuristic' virus analysis engine?",
+    options: [
+      "Matching exact file MD5 hashes against databases of known threats.",
+      "Analyzing file behavior and code patterns to detect suspicious characteristics of previously unknown malware.",
+      "Evaluating network connections based on destination ports.",
+      "Checking configuration text parameters across baseline setups."
+    ],
+    answer: 1
+  },
+  {
+    id: 96,
+    question: "What security risk does a 'Man-in-the-Browser' (MitB) attack represent?",
+    options: [
+      "An attacker installs an interception tool on a local network switch.",
+      "An attacker uses a malicious browser extension or malware to modify web page content and transaction details in real-time without the user's knowledge.",
+      "An attacker modifies external authoritative nameserver assignments.",
+      "An attacker exploits access flaws on public wireless network routers."
+    ],
+    answer: 1
+  },
+  {
+    id: 97,
+    question: "What is the primary technical objective of an advanced threat actor executing 'Lateral Movement'?",
+    options: [
+      "Gaining initial access to an environment via a phishing link.",
+      "Moving deeper into a compromised network to access other high-value systems and infrastructure.",
+      "Exfiltrating data packages to an external repository.",
+      "Clearing system application event logs to hide their tracks."
+    ],
+    answer: 1
+  },
+  {
+    id: 98,
+    question: "Which scenario describes a 'Watering Hole' attack?",
+    options: [
+      "Compromising a specific website known to be frequently visited by a target group of users to infect their systems.",
+      "Flooding an organization's internal DNS servers with malformed lookups.",
+      "Sending targeted phishing messages to human resources personnel.",
+      "Intercepting internal network traffic using physical hardware accessories."
+    ],
+    answer: 0
+  },
+  {
+    id: 99,
+    question: "What operational problem is created by a 'Siloed' logging infrastructure during a security incident investigation?",
+    options: [
+      "Increased costs associated with decentralized backup retention systems.",
+      "Slower detection and analysis because logs are scattered across isolated systems, preventing analyst visibility and correlation.",
+      "Automated deletion loops occurring across endpoint operating systems.",
+      "The production of corrupt file captures across system storage areas."
+    ],
+    answer: 1
+  },
+  {
+    id: 100,
+    question: "What is the primary, ultimate objective of information security risk management programs?",
+    options: [
+      "Completely eliminating all identified technology risks within the organization.",
+      "Identifying, assessing, and reducing risk to an acceptable level that aligns with organizational risk tolerance.",
+      "Enforcing strict password complexity updates across corporate applications.",
+      "Deploying high-capacity network firewalls at all physical facility perimeters."
+    ],
+    answer: 1
+  }
+];
+
         answer: 0
       }
       // 💡 Feel free to paste objects 6 through 100 directly right here following this template format!
