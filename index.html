@@ -93,10 +93,8 @@
     </div>
 
     <div id="certificate-screen" class="hidden flex flex-col items-center w-full">
-      
       <div class="overflow-x-auto w-full flex justify-center py-4 bg-slate-950 rounded-xl mb-6">
         <div id="certificate-canvas" class="w-[842px] h-[595px] bg-white text-slate-900 p-12 relative flex flex-col justify-between border-[16px] border-double border-slate-900 select-none shadow-2xl shrink-0 font-serif-cert">
-          
           <span class="absolute top-4 left-4 text-2xl text-slate-800">◆</span>
           <span class="absolute top-4 right-4 text-2xl text-slate-800">◆</span>
           <span class="absolute bottom-4 left-4 text-2xl text-slate-800">◆</span>
@@ -154,12 +152,70 @@
     &copy; 2026 MR|D³V1L Cyber team & Cyber security. All rights reserved.
   </footer>
 
-  <script src="questions.js"></script>
   <script>
+    // 💡 YOUR QUESTION BANK IS NOW SECURELY INTEGRATED DIRECTLY INSIDE THIS FILE
+    const quizQuestions = [
+      {
+        id: 1,
+        question: "What is the primary difference between symmetric and asymmetric encryption?",
+        options: [
+          "Symmetric uses one key for encryption and decryption; asymmetric uses a public/private key pair.",
+          "Asymmetric encryption is significantly faster than symmetric encryption.",
+          "Symmetric encryption is only used for data at rest, while asymmetric is for data in transit.",
+          "Symmetric encryption cannot be cracked, whereas asymmetric encryption can be."
+        ],
+        answer: 0
+      },
+      {
+        id: 2,
+        question: "Which of the following attacks exploits a trust relationship between a user's browser and a target website to execute unwanted actions?",
+        options: [
+          "Cross-Site Scripting (XSS)",
+          "Cross-Site Request Forgery (CSRF)",
+          "SQL Injection (SQLi)",
+          "Man-in-the-Middle (MitM)"
+        ],
+        answer: 1
+      },
+      {
+        id: 3,
+        question: "During an incident response phase, what is the main purpose of 'Containment'?",
+        options: [
+          "To discover the root cause of the security breach.",
+          "To completely remove the malware files from infected endpoints.",
+          "To limit the scope and magnitude of the incident to prevent further damage.",
+          "To restore systems back to normal business operations."
+        ],
+        answer: 2
+      },
+      {
+        id: 4,
+        question: "What does a 'Salt' add to a password hashing process to make it secure against rainbow tables?",
+        options: [
+          "A layer of symmetric encryption after hashing.",
+          "A fixed string appended to all passwords before hashing.",
+          "A unique, random string appended to each individual password before hashing.",
+          "A compression algorithm that reduces password complexity."
+        ],
+        answer: 3
+      },
+      {
+        id: 5,
+        question: "In Active Directory environments, what type of attack targets the Kerberos ticket-granting service (TGS) to crack service account passwords offline?",
+        options: [
+          "Kerberoasting",
+          "Pass-the-Hash",
+          "Golden Ticket Attack",
+          "AS-REP Roasting"
+        ],
+        answer: 0
+      }
+      // 💡 Feel free to paste objects 6 through 100 directly right here following this template format!
+    ];
+
     let currentIdx = 0;
     let score = 0;
 
-    // Helper functions to manage view switches
     function showScreen(id) {
       document.getElementById('start-screen').classList.add('hidden');
       document.getElementById('quiz-screen').classList.add('hidden');
@@ -172,7 +228,6 @@
     function startQuiz() {
       currentIdx = 0;
       score = 0;
-      // Set baseline today's date input structure automatically 
       document.getElementById('cert-date').value = new Date().toISOString().split('T')[0];
       showScreen('quiz-screen');
       loadQuestion();
@@ -181,16 +236,13 @@
     function loadQuestion() {
       const qData = quizQuestions[currentIdx];
       
-      // Update UI Progress Info
       document.getElementById('progress-text').innerText = `Question ${currentIdx + 1} of ${quizQuestions.length}`;
       const currentPct = Math.round((currentIdx / quizQuestions.length) * 100);
       document.getElementById('progress-bar').style.width = `${currentPct || 1}%`;
       document.getElementById('live-score').innerText = `Score: ${Math.round((score / quizQuestions.length) * 100)}%`;
       
-      // Display Question Text
       document.getElementById('question-text').innerText = qData.question;
       
-      // Render Dynamic Interactive Options
       const optionsContainer = document.getElementById('options-container');
       optionsContainer.innerHTML = '';
       
@@ -222,7 +274,6 @@
       if (finalScorePercentage === 100) {
         showScreen('perfect-form-screen');
       } else {
-        // Render Standard Results Screen
         document.getElementById('final-percentage').innerText = `${finalScorePercentage}%`;
         document.getElementById('score-summary').innerText = `You accurately answered ${score} out of ${quizQuestions.length} questions.`;
         
@@ -247,12 +298,10 @@
         return;
       }
 
-      // Format Date values cleanly
       const dateObj = new Date(dateVal);
       const options = { year: 'numeric', month: 'long', day: 'numeric' };
       const formattedDate = dateObj.toLocaleDateString('en-US', options);
 
-      // Map values directly into target A4 Document nodes
       document.getElementById('display-name').innerText = nameVal;
       document.getElementById('display-age').innerText = ageVal;
       document.getElementById('display-date').innerText = formattedDate;
@@ -263,9 +312,8 @@
     function downloadPNG() {
       const element = document.getElementById('certificate-canvas');
       
-      // Execute capture rendering
       html2canvas(element, {
-        scale: 2, // Double scale resolution to maximize clear readability text strings
+        scale: 2, 
         useCORS: true,
         logging: false
       }).then(canvas => {
